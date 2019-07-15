@@ -5,28 +5,17 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 @Configuration
-public class ConfigurableBean {
-    @Bean(name={"movie1","movie2"})
-    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    public Movie movieBean()
+public class ConfigurableBean
+{
+    @Bean(name = "actor")
+    public Actor getActor()
     {
-        Movie mov=new Movie(actorBean1());
-        return mov;
+        return new Actor("Prabhas","Male",40);
     }
-    @Bean(name={"movie3","movie4"})
-    public Movie movieBean1()
+    @Bean(name="movie")
+    public Movie getMovie()
     {
-        Movie mov=new Movie(actorBean2());
-        return mov;
+        return new Movie();
     }
-    @Bean
-    public Actor actorBean1()
-    {
-        return new Actor("Mahesh","Male",45);
-    }
-    @Bean
-    public Actor actorBean2()
-    {
-        return new Actor("Prabhas","Male",38);
-    }
+
 }
