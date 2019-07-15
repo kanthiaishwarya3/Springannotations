@@ -10,17 +10,22 @@ public class ConfigurableBean
     @Bean(name = "actor")
     public Actor getActor()
     {
-        return new Actor("Surya","Male",40);
+        return new Actor("Prabhas","Male",40);
     }
     @Bean(name="movie")
     public Movie getMovie()
     {
         return new Movie();
     }
-    @Bean(name="beanlifecycle",initMethod = "customInit",destroyMethod = "customDestroy")
+    @Bean(initMethod = "customInit",destroyMethod = "customDestroy")
     public BeanLifeCycleDemoBean setBeanlifeCycleobject()
     {
         return new BeanLifeCycleDemoBean();
+    }
+    @Bean
+    public BeanPostProcessorDemoBean setBeanPostProcessorDemoBean()
+    {
+        return new BeanPostProcessorDemoBean();
     }
 
 }
